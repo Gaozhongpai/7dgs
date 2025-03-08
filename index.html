@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="6DGS" />
+  <meta property="og:description" content="6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric Rendering" />
+  <meta property="og:url" content="https://gaozhongpai.github.io/6dgs/" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/6dgslogo.webp" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+
+
+  <meta name="twitter:title" content="6DGS">
+  <meta name="twitter:description" content="6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric Rendering">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/6dgslogo.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="6DGS, ray tracing, volumetric rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric Rendering</title>
+  <link rel="icon" type="image/x-icon" href="static/images/6dgslogo.webp">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="static/css/bootstrap-4.4.1.css">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Bulma and Font Awesome -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- jQuery and JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/app.js"></script>
+  <script src="static/js/video_comparison.js"></script>
+
+  <link rel="stylesheet" href="static/css/dics.original.css">
+  <script src="static/js/event_handler.js"></script>
+  <script src="static/js/dics.original.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric
+              Rendering</h1>
+            <p class="name text-center" style="color:grey; font-size: 24px;">
+                ICLR 2025
+            </p>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href=https://sites.google.com/site/gaozhongpai/home target="_blank">Zhongpai Gao</a>,</span>
+              <span class="author-block">
+                <a href="https://planche.me/" target="_blank">Benjamin Planche</a>,</span>
+              <span class="author-block">
+                <a href="https://mzhengrpi.github.io/" target="_blank">Meng Zheng</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=KQnKUHKGFdUC&hl=en" target="_blank">Anwesa
+                  Choudhuri</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=S2BT6ogAAAAJ&hl=en" target="_blank">Terrence
+                  Chen</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://wuziyan.com/" target="_blank">Ziyan Wu</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">United Imaging Intelligence, Boston MA, USA</span>
+              <span class="eql-cntrb"><small><br>{first.last}@uii-ai.com</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2410.04974" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Notebook link -->
+                <span class="link-block">
+                  <a href="https://notebooklm.google.com/notebook/4f433e88-ce02-41bb-9511-fe16953d5ca0/audio"
+                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-podcast"></i>
+                    </span>
+                    <span>NotebookLM</span>
+                  </a>
+                </span>
+
+                 <!-- Github link -->
+                 <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1ZsH9h1kfBFg5YlarY11Dp-nZteBbRVGs/view?usp=sharing"
+                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-image"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser image -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static\images\teaser.jpg" alt="Teaser Image" id="tree" style="height: 100%; width: 100%;">
+        <h2 class="subtitle has-text-centered">
+          Experiments demonstrate that 6DGS significantly outperforms 3DGS and N-DG, achieving up to a 15.73 dB
+          improvement in PSNR with a reduction of 66.5% Gaussian points compared to 3DGS.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser image -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Novel view synthesis has advanced significantly with the development of neural radiance fields (NeRF) and
+              3D Gaussian splatting (3DGS). However, achieving high quality without compromising real-time rendering
+              remains challenging, particularly for physically-based ray tracing with view-dependent effects. Recently,
+              N-dimensional Gaussians (N-DG) introduced a 6D spatial-angular representation to better incorporate
+              view-dependent effects, but the Gaussian representation and control scheme are sub-optimal. In this paper,
+              we revisit 6D Gaussians and introduce 6D Gaussian Splatting (6DGS), which enhances color and opacity
+              representations and leverages the additional directional information in the 6D space for optimized
+              Gaussian control. Our approach is fully compatible with the 3DGS framework and significantly improves
+              real-time radiance field rendering by better modeling view-dependent effects and fine details. Experiments
+              demonstrate that 6DGS significantly outperforms 3DGS and N-DG, achieving up to a 15.73 dB improvement in
+              PSNR with a reduction of 66.5% Gaussian points compared to 3DGS. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <!-- Results. -->
+      <div class="columns is-centered ">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+          <h3 class="title is-4">Comparison wtih 3DGS and N-DG</h3>
+
+          <div class="content has-text-justified">
+            <p>
+              Here, we present the qualitative comparison results of 3DGS, N-DG, 6DGS (Ours), and Ground Truth.
+            </p>
+          </div>
+
+          <div class="container">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+              <li class="nav-item">
+                <a class="nav-link " onclick="objectSceneEvent(0)">bunny</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " onclick="objectSceneEvent(1)">cloud</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(2)">ct</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" onclick="objectSceneEvent(3)">explosion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(4)">smoke</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(5)">suzanne</a>
+              </li>
+
+            </ul>
+            <div class="b-dics" style="width: 2600px; font-weight: 800;">
+              <img src="resources/image/explosion/3dgs.png" alt="3DGS">
+              <img src="resources/image/explosion/ndg.png" alt="N-DG">
+              <img src="resources/image/explosion/ours.png" alt="6DGS (Ours)">
+              <img src="resources/image/explosion/gt.png" alt="GT">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
+
+
+  <!-- YouTube Videos Section -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <!-- Paper videos -->
+        <h2 class="title is-3">Demo Videos</h2>
+        <div class="columns is-multiline is-centered has-text-centered">
+          <!-- First Video -->
+          <div class="column is-half">
+            <div class="publication-video">
+              <!-- First YouTube embed code -->
+              <iframe src="https://www.youtube.com/embed/77wN-K6Q9aM" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">Explosion</p>
+          </div>
+          <!-- Second Video -->
+          <div class="column is-half">
+            <div class="publication-video">
+              <!-- Second YouTube embed code -->
+              <iframe src="https://www.youtube.com/embed/HjdFtdyoa64" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">CT-Scan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End YouTube Videos Section -->
+
+
+  <!-- YouTube Videos Section -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <!-- Paper videos -->
+        <h2 class="title is-3">Interative Live Demo TBD</h2>
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- End YouTube Videos Section -->
+
+
+
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{gao20246dgs,
+        title={6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric Rendering}, 
+        author={Zhongpai Gao and Benjamin Planche and Meng Zheng and Anwesa Choudhuri and Terrence Chen and Ziyan Wu},
+        year={2024},
+        eprint={2410.04974},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2410.04974}, 
+  }</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
