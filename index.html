@@ -65,9 +65,6 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">7DGS: Unified Spatial-Temporal-Angular Gaussian Splatting</h1>
-            <p class="name text-center" style="color:grey; font-size: 24px;">
-                ICLR 2025
-            </p>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -162,17 +159,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Novel view synthesis has advanced significantly with the development of neural radiance fields (NeRF) and
-              3D Gaussian splatting (3DGS). However, achieving high quality without compromising real-time rendering
-              remains challenging, particularly for physically-based ray tracing with view-dependent effects. Recently,
-              N-dimensional Gaussians (N-DG) introduced a 6D spatial-angular representation to better incorporate
-              view-dependent effects, but the Gaussian representation and control scheme are sub-optimal. In this paper,
-              we revisit 6D Gaussians and introduce 6D Gaussian Splatting (6DGS), which enhances color and opacity
-              representations and leverages the additional directional information in the 6D space for optimized
-              Gaussian control. Our approach is fully compatible with the 3DGS framework and significantly improves
-              real-time radiance field rendering by better modeling view-dependent effects and fine details. Experiments
-              demonstrate that 6DGS significantly outperforms 3DGS and N-DG, achieving up to a 15.73 dB improvement in
-              PSNR with a reduction of 66.5% Gaussian points compared to 3DGS. </p>
+              Real-time rendering of dynamic scenes with view-dependent effects remains a fundamental challenge in computer graphics. While recent advances in Gaussian Splatting have shown promising results separately handling dynamic scenes (4DGS) and view-dependent effects (6DGS), no existing method unifies these capabilities while maintaining real-time performance. We present 7D Gaussian Splatting (7DGS), a unified framework representing scene elements as seven-dimensional Gaussians spanning position (3D), time (1D), and viewing direction (3D). Our key contribution is an efficient conditional slicing mechanism that transforms 7D Gaussians into view- and time-conditioned 3D Gaussians, maintaining compatibility with existing 3D Gaussian Splatting pipelines while enabling joint optimization. Experiments demonstrate that 7DGS outperforms prior methods by up to 7.36 dB in PSNR while achieving real-time rendering (401 FPS) on challenging dynamic scenes with complex view-dependent effects. </p>
           </div>
         </div>
       </div>
