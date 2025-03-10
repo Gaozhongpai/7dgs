@@ -16,7 +16,7 @@ function domReady() {
 function objectSceneEvent(idx) {
     let dics = document.querySelectorAll('.b-dics')[0];
     let sections = dics.getElementsByClassName('b-dics__section');
-    let imagesLength = 4;
+    let imagesLength = 3;
 
     updateImages(sections, idx, imagesLength, 'object');
     updateTabStates('object-scale-recon', idx);
@@ -29,8 +29,8 @@ function dropobjectSceneEvent(idx) {
 
     let imageSuffix = '00019.png';
     let paths = [
-        `resources/drop/3dgs/${columnNames[idx]}/${imageSuffix}`,
-        `resources/drop/ours/${columnNames[idx]}/${imageSuffix}`,
+        `resources/drop/4dgs/${columnNames[idx]}/${imageSuffix}`,
+        `resources/drop/7dgs/${columnNames[idx]}/${imageSuffix}`,
         `resources/drop/gt/${columnNames[idx]}/${imageSuffix}` // Fix for GT path
     ];
 
@@ -69,11 +69,12 @@ function updateTabStates(navId, activeIdx) {
 }
 
 function getImageFolder(idx, sliderType) {
-    let folders = ['bunny', 'cloud', 'ct', 'explosion', 'smoke', 'suzanne'];
+    let folders = ['heart', 'cloud', 'dust', 'flame', 'suzanne', 'ball', 
+                   'jacks','lego', 'birthday', 'painter'];
     return folders[idx];
 }
 
 function getImageFileName(imageIndex, sliderType) {
-    let filenames = ['3dgs.png', 'ndg.png', 'ours.png', 'gt.png'];
+    let filenames = ['4dgs.png', '7dgs.png', 'gt.png'];
     return filenames[imageIndex];
 }

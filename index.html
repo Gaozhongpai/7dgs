@@ -278,7 +278,7 @@
 </section>
 <!-- End teaser video -->
 
-
+<!-- Image carousel -->
   <section class="section">
     <div class="container is-max-desktop">
 
@@ -287,41 +287,51 @@
         <div class="column is-full-width">
           <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
 
-          <h3 class="title is-4">Comparison wtih 3DGS and N-DG</h3>
+          <h3 class="title is-4">Comparison wtih 4DGS</h3>
 
           <div class="content has-text-justified">
             <p>
-              Here, we present the qualitative comparison results of 3DGS, N-DG, 6DGS (Ours), and Ground Truth.
+              Here, we present the qualitative comparison results of 4DGS and 7DGS (Ours), and Ground Truth.
             </p>
           </div>
 
           <div class="container">
             <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
               <li class="nav-item">
-                <a class="nav-link " onclick="objectSceneEvent(0)">bunny</a>
+                <a class="nav-link " onclick="objectSceneEvent(0)">heart</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " onclick="objectSceneEvent(1)">cloud</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(2)">ct</a>
+                <a class="nav-link " onclick="objectSceneEvent(2)">dust</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" onclick="objectSceneEvent(3)">explosion</a>
+                <a class="nav-link" onclick="objectSceneEvent(3)">flame</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(4)">smoke</a>
+                <a class="nav-link active" onclick="objectSceneEvent(4)">suzanne</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="objectSceneEvent(5)">suzanne</a>
+                <a class="nav-link" onclick="objectSceneEvent(5)">ball</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(6)">jacks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(7)">lego</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(8)">birthday</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="objectSceneEvent(9)">painter</a>
+              </li>
             </ul>
             <div class="b-dics" style="width: 2600px; font-weight: 800;">
-              <img src="resources/image/explosion/3dgs.png" alt="3DGS">
-              <img src="resources/image/explosion/ndg.png" alt="N-DG">
-              <img src="resources/image/explosion/ours.png" alt="6DGS (Ours)">
-              <img src="resources/image/explosion/gt.png" alt="GT">
+              <img src="resources/image/suzanne/4dgs.png" alt="4DGS">
+              <img src="resources/image/suzanne/7dgs.png" alt="7DGS (Ours)">
+              <img src="resources/image/suzanne/gt.png" alt="GT">
             </div>
           </div>
         </div>
@@ -330,64 +340,14 @@
   </section>
   <!-- End image carousel -->
 
-
-  <!-- YouTube Videos Section -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <!-- Paper videos -->
-        <h2 class="title is-3">Demo Videos</h2>
-        <div class="columns is-multiline is-centered has-text-centered">
-          <!-- First Video -->
-          <div class="column is-half">
-            <div class="publication-video">
-              <!-- First YouTube embed code -->
-              <iframe src="https://www.youtube.com/embed/77wN-K6Q9aM" frameborder="0" allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">Explosion</p>
-          </div>
-          <!-- Second Video -->
-          <div class="column is-half">
-            <div class="publication-video">
-              <!-- Second YouTube embed code -->
-              <iframe src="https://www.youtube.com/embed/HjdFtdyoa64" frameborder="0" allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">CT-Scan</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End YouTube Videos Section -->
-
-
-  <!-- YouTube Videos Section -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <!-- Paper videos -->
-        <h2 class="title is-3">Interative Live Demo TBD</h2>
-
-      </div>
-    </div>
-    </div>
-  </section>
-  <!-- End YouTube Videos Section -->
-
-
-
-
-
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{gao20246dgs,
-        title={6DGS: Enhanced Direction-Aware Gaussian Splatting for Volumetric Rendering}, 
+      <pre><code>@misc{gao20257dgs,
+        title={7DGS: Unified Spatial-Temporal-Angular Gaussian Splatting}, 
         author={Zhongpai Gao and Benjamin Planche and Meng Zheng and Anwesa Choudhuri and Terrence Chen and Ziyan Wu},
-        year={2024},
+        year={2025},
         eprint={2410.04974},
         archivePrefix={arXiv},
         primaryClass={cs.CV},
