@@ -15,6 +15,16 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     }
+    // mobile hamburger toggle
+    var toggle = document.querySelector('.nd-nav-toggle');
+    var links = document.querySelector('.nd-nav-links');
+    if (toggle && links) {
+      toggle.addEventListener('click', function () { links.classList.toggle('open'); });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') links.classList.remove('open');
+      });
+    }
+
     var targets = document.querySelectorAll('.nd-reveal');
     if ('IntersectionObserver' in window && targets.length) {
       var io = new IntersectionObserver(function (entries) {
