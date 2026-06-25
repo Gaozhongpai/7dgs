@@ -201,7 +201,10 @@ body {
   color: var(--accent-ink); background: #fff;
   border-color: var(--line) var(--line) #fff;
 }
-.b-dics { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); margin-top: 14px; }
+/* the template hardcodes inline width:2600px on .b-dics, which overflows the
+   page on laptop/desktop; constrain it to the content column instead */
+.b-dics { width: 100% !important; max-width: 100% !important; margin-left: auto; margin-right: auto;
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); margin-top: 14px; }
 .b-dics__text { font-family: var(--nd-font) !important; }
 
 /* video carousel items */
