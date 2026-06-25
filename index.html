@@ -32,6 +32,9 @@
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bulma and Font Awesome -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -54,20 +57,36 @@
   <link rel="stylesheet" href="static/css/dics.original.css">
   <script src="static/js/event_handler.js"></script>
   <script src="static/js/dics.original.js"></script>
+
+  <!-- NDSplat theme (loaded last so it wins the cascade) -->
+  <link rel="stylesheet" href="static/css/ndsplat-theme.css">
+  <script defer src="static/js/ndsplat-nav.js"></script>
 </head>
 
 <body>
 
+  <!-- ============ NDSplat NAV ============ -->
+  <header class="nd-nav" id="ndNav">
+    <div class="nd-nav-inner">
+      <a class="nd-brand" href="https://gaozhongpai.github.io/ndsplat/"><span class="mk">ND</span>Splat</a>
+      <nav class="nd-nav-links">
+        <a href="https://gaozhongpai.github.io/6dgs/">6DGS</a>
+        <a href="https://gaozhongpai.github.io/7dgs/" class="current">7DGS</a>
+        <a href="https://rongliu-leo.github.io/universal-beta-splatting/">UBS</a>
+        <a href="https://gaozhongpai.github.io/ndsplat/"><em>d</em>GS/<em>d</em>BS</a>
+        <a href="https://gaozhongpai.github.io/renderfm/">Render-FM</a>
+      </nav>
+    </div>
+  </header>
 
-  <section class="hero">
+  <section class="hero nd-hero">
+    <div class="nd-hero-bg" aria-hidden="true"></div>
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
+            <span class="nd-venue"><span class="dot"></span>ICCV 2025</span>
             <h1 class="title is-1 publication-title">7DGS: Unified Spatial-Temporal-Angular Gaussian Splatting</h1>
-            <p class="name text-center" style="color:grey; font-size: 24px;">
-                ICCV 2025
-            </p>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -140,11 +159,18 @@
   </section>
 
 
+  <!-- ============ STAT STRIP ============ -->
+  <div class="nd-stats">
+    <div class="nd-stat"><div class="num">+7.36 dB</div><div class="lbl">PSNR over 4DGS</div></div>
+    <div class="nd-stat"><div class="num">401 FPS</div><div class="lbl">Real-time rendering</div></div>
+    <div class="nd-stat"><div class="num">7D</div><div class="lbl">Space + time + angle</div></div>
+  </div>
+
   <!-- Teaser image -->
-  <section class="hero teaser">
+  <section class="hero teaser nd-reveal">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="static\images\teaser.jpg" alt="Teaser Image" id="tree" style="height: 100%; width: 100%;">
+        <img src="static/images/teaser.jpg" alt="Teaser Image" id="tree" style="height: 100%; width: 100%;">
         <h2 class="subtitle has-text-centered">
           Experiments demonstrate that 7DGS significantly outperforms 4DGS, achieving  up to 7.36 dB in PSNR while achieving real-time rendering (401 FPS) on challenging dynamic scenes with complex view-dependent effects, compared to 4DGS.
         </h2>
@@ -154,7 +180,7 @@
   <!-- End teaser image -->
 
   <!-- Paper abstract -->
-  <section class="section hero is-light">
+  <section class="section hero is-light nd-reveal">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -342,6 +368,40 @@
     </div>
   </section>
   <!-- End image carousel -->
+
+  <!-- ============ RELATED WORK (cross-reference network) ============ -->
+  <section class="section nd-related nd-reveal">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">The N-Dimensional Splatting Line</h2>
+      <div class="nd-related-grid">
+        <a class="nd-rel" href="https://gaozhongpai.github.io/6dgs/">
+          <span class="nd-rel-venue">ICLR 2025</span>
+          <span class="nd-rel-name">6DGS</span>
+          <span class="nd-rel-desc">Direction-aware 6D Gaussians for view-dependent volumetric rendering.</span>
+        </a>
+        <a class="nd-rel is-self">
+          <span class="nd-rel-venue">ICCV 2025</span>
+          <span class="nd-rel-name">7DGS</span>
+          <span class="nd-rel-desc">Unified spatial-temporal-angular Gaussians for dynamic, view-dependent scenes.</span>
+        </a>
+        <a class="nd-rel" href="https://rongliu-leo.github.io/universal-beta-splatting/">
+          <span class="nd-rel-venue">ICLR 2026</span>
+          <span class="nd-rel-name">UBS</span>
+          <span class="nd-rel-desc">Universal Beta Splatting: anisotropic Beta kernels across space, angle, and time.</span>
+        </a>
+        <a class="nd-rel" href="https://gaozhongpai.github.io/ndsplat/">
+          <span class="nd-rel-venue">Latest</span>
+          <span class="nd-rel-name"><em class="tight">d</em>GS / <em class="tight">d</em>BS</span>
+          <span class="nd-rel-desc">Direct conditional parameterization — kernel-agnostic, up to 7.7&times; faster slicing.</span>
+        </a>
+        <a class="nd-rel" href="https://gaozhongpai.github.io/renderfm/">
+          <span class="nd-rel-venue">ECCV 2026</span>
+          <span class="nd-rel-name">Render-FM</span>
+          <span class="nd-rel-desc">Feedforward 6DGS for medical CT — 500&times; faster than per-scan optimization.</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!--BibTex citation -->
   <section class="section" id="BibTeX">

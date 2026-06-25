@@ -1,0 +1,267 @@
+/* ============================================================
+   NDSplat shared project-page theme
+   Overrides the Bulma/Bootstrap academic template with the
+   NDSplat visual language (hero, sections, tabs, sliders,
+   tables, bibtex, related-work cross-links, footer).
+   Loaded LAST so it wins the cascade.
+   ============================================================ */
+
+:root {
+  --bg:        #ffffff;
+  --bg-alt:    #f6f7fb;
+  --ink:       #14161c;
+  --ink-soft:  #4a5061;
+  --ink-faint: #8a91a3;
+  --line:      #e6e8ef;
+  --accent:    #6d5cf6;   /* violet */
+  --accent-2:  #18b6c9;   /* teal   */
+  --accent-3:  #f0566f;   /* coral  */
+  --accent-ink:#5849d6;
+  --ours-bg:   #f1eefe;
+  --radius:    16px;
+  --radius-sm: 10px;
+  --maxw:      1120px;
+  --shadow:    0 1px 2px rgba(20,22,28,.04), 0 8px 28px rgba(20,22,28,.06);
+  --shadow-lg: 0 18px 60px rgba(20,22,28,.12);
+  --nd-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --nd-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body {
+  font-family: var(--nd-font) !important;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.nd-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  backdrop-filter: saturate(180%) blur(14px);
+  background: rgba(255,255,255,.78);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s, box-shadow .25s;
+}
+.nd-nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 2px 18px rgba(20,22,28,.05); }
+.nd-nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nd-brand { display: flex; align-items: center; gap: 1px; font-weight: 800; font-size: 1.16rem; letter-spacing: -.02em; color: var(--ink); }
+.nd-brand:hover { text-decoration: none; color: var(--ink); }
+.nd-brand .mk {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nd-nav-links { display: flex; gap: 2px; align-items: center; flex-wrap: wrap; }
+.nd-nav-links a {
+  color: var(--ink-soft); font-weight: 500; font-size: .9rem;
+  padding: 7px 12px; border-radius: 9px; transition: background .15s, color .15s;
+}
+.nd-nav-links a:hover { background: var(--bg-alt); color: var(--ink); text-decoration: none; }
+.nd-nav-links a.current { color: var(--accent-ink); font-weight: 700; }
+@media (max-width: 820px) {
+  .nd-nav-links a { padding: 6px 8px; font-size: .82rem; }
+  .nd-brand { font-size: 1rem; }
+}
+
+/* ============================================================
+   HERO  (overrides .hero / first .publication-* block)
+   ============================================================ */
+.nd-hero {
+  position: relative; overflow: hidden;
+  background: radial-gradient(1200px 700px at 50% -20%, #1c1f33 0%, #0c0d17 60%, #07080f 100%) !important;
+  color: #fff !important;
+  padding: 132px 24px 76px !important;
+}
+.nd-hero .hero-body { padding: 0; }
+.nd-hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(620px 420px at 16% 22%, rgba(109,92,246,.40), transparent 60%),
+    radial-gradient(560px 440px at 84% 30%, rgba(24,182,201,.30), transparent 60%),
+    radial-gradient(700px 480px at 60% 110%, rgba(240,86,111,.18), transparent 62%);
+  filter: blur(8px);
+}
+.nd-hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+}
+.nd-hero .container { position: relative; z-index: 2; }
+
+/* venue chip */
+.nd-venue {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22);
+  color: #fff; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .72rem; padding: .42rem 1.05rem; border-radius: 999px; margin-bottom: 1.4rem;
+}
+.nd-venue .dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px rgba(24,182,201,.22); }
+
+.nd-hero .publication-title {
+  font-family: var(--nd-font) !important; color: #fff !important;
+  font-weight: 800 !important; letter-spacing: -.025em; line-height: 1.08 !important;
+  font-size: clamp(2rem, 4.4vw, 3.2rem) !important; margin-bottom: 1.4rem !important;
+}
+.nd-hero .publication-authors { color: rgba(255,255,255,.82) !important; font-weight: 400; line-height: 1.8; }
+.nd-hero .publication-authors .author-block { margin: 0 .3rem; white-space: nowrap; }
+.nd-hero .publication-authors a { color: #fff !important; text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 4px; }
+.nd-hero .publication-authors a:hover { color: #9b8cff !important; text-decoration-color: #9b8cff; }
+.nd-hero .name { color: rgba(255,255,255,.7) !important; }
+.nd-affil, .nd-hero .eql-cntrb { color: rgba(255,255,255,.7) !important; }
+
+/* link buttons */
+.nd-hero .publication-links { margin-top: 1.7rem; }
+.nd-hero .external-link.button, .nd-hero .button.is-dark {
+  background: rgba(255,255,255,.10) !important; border: 1px solid rgba(255,255,255,.24) !important;
+  color: #fff !important; font-weight: 600 !important; border-radius: 999px !important;
+  transition: transform .14s ease, background .15s ease !important;
+}
+.nd-hero .external-link.button:hover, .nd-hero .button.is-dark:hover {
+  background: #fff !important; color: var(--accent-ink) !important; transform: translateY(-2px);
+}
+
+/* stat strip */
+.nd-stats {
+  max-width: 920px; margin: -2.2rem auto 0; position: relative; z-index: 6;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 0 1.5rem;
+}
+.nd-stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 1.3rem 1rem; text-align: center; }
+.nd-stat .num { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: var(--accent-ink);
+  font-variant-numeric: tabular-nums lining-nums; }
+.nd-stat .lbl { font-size: .74rem; font-weight: 600; color: var(--ink-faint); margin-top: .55rem; text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 768px) {
+  .nd-stats { gap: .55rem; margin-top: -1.6rem; padding: 0 .9rem; }
+  .nd-stat { padding: .8rem .4rem; border-radius: 12px; }
+  .nd-stat .num { font-size: 1.45rem; }
+  .nd-stat .lbl { font-size: .58rem; margin-top: .3rem; letter-spacing: .04em; }
+}
+
+/* ============================================================
+   SECTIONS & HEADINGS
+   ============================================================ */
+.section { padding: 78px 0; }
+.hero.is-light, .section.hero.is-light { background: var(--bg-alt) !important; }
+.hero.is-small.is-light { background: var(--bg-alt) !important; }
+
+.section .title.is-3, .title.is-3 {
+  font-family: var(--nd-font) !important; font-weight: 800 !important;
+  letter-spacing: -.02em; color: var(--ink) !important;
+  font-size: clamp(1.7rem, 3vw, 2.4rem) !important;
+}
+.title.is-3.has-text-centered { display: block; }
+.section .title.is-4, .title.is-4 { font-family: var(--nd-font) !important; font-weight: 700 !important; color: var(--ink) !important; }
+.subtitle, .content p { font-family: var(--nd-font) !important; }
+.content p { color: var(--ink-soft); }
+.content b, .content strong, .subtitle b { color: var(--ink); font-weight: 600; }
+
+/* abstract card */
+.content.rfm-card, .nd-card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 2rem 2.2rem; text-align: left;
+}
+
+/* teaser */
+.teaser img, .teaser video { border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.teaser .subtitle { max-width: 800px; margin: 1rem auto 0; font-size: 1rem; color: var(--ink-soft); font-weight: 400; line-height: 1.6; }
+
+/* ============================================================
+   RESULT TABS (Bootstrap nav-tabs) + DICS SLIDER
+   ============================================================ */
+.nav-tabs { border-bottom: 1px solid var(--line); margin-bottom: 0; }
+#object-scale-recon .nav-link, .nav-tabs .nav-link {
+  cursor: pointer; font-weight: 600; color: var(--ink-soft);
+  border: 1px solid transparent; border-radius: 9px 9px 0 0; padding: .5rem .85rem;
+  transition: color .15s, background .15s;
+}
+.nav-tabs .nav-link:hover { color: var(--ink); background: var(--bg-alt); border-color: transparent; }
+#object-scale-recon .nav-link.active, .nav-tabs .nav-link.active {
+  color: var(--accent-ink); background: #fff;
+  border-color: var(--line) var(--line) #fff;
+}
+.b-dics { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); margin-top: 14px; }
+.b-dics__text { font-family: var(--nd-font) !important; }
+
+/* video carousel items */
+.results-carousel .item video {
+  display: block; width: 100%; max-width: 920px; height: auto; margin: 0 auto;
+  border-radius: var(--radius); box-shadow: var(--shadow-lg); background: #000;
+}
+.publication-video { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+.video-caption { color: var(--ink-soft); font-weight: 500; margin-top: .6rem; }
+
+/* ============================================================
+   METRICS TABLE
+   ============================================================ */
+.rfm-table-wrap, .nd-table-wrap { overflow-x: auto; border-radius: var(--radius); }
+table.rfm-metrics, table.nd-metrics {
+  width: 100%; border-collapse: collapse; font-size: .92rem; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); font-variant-numeric: tabular-nums;
+}
+table.rfm-metrics th, table.rfm-metrics td,
+table.nd-metrics th, table.nd-metrics td { padding: .72rem 1rem; text-align: center; border-bottom: 1px solid var(--line); }
+table.rfm-metrics thead th, table.nd-metrics thead th { background: #11131e; color: #fff; font-weight: 600; }
+table.rfm-metrics td:first-child, table.rfm-metrics th:first-child,
+table.nd-metrics td:first-child, table.nd-metrics th:first-child { text-align: left; }
+table.rfm-metrics tr.rfm-ours, table.nd-metrics tr.nd-ours { background: var(--ours-bg); font-weight: 600; }
+table.rfm-metrics .best, table.nd-metrics .best { color: var(--accent-ink); font-weight: 800; }
+.rfm-tag, .nd-tag {
+  display: inline-block; background: var(--bg-alt); color: var(--accent-ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: .14rem .7rem;
+  font-size: .8rem; font-weight: 700; margin: 0 .15rem;
+}
+
+/* ============================================================
+   RELATED WORK  (cross-reference network)
+   ============================================================ */
+.nd-related { background: var(--bg-alt); }
+.nd-related .nd-related-grid {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 8px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px;
+}
+.nd-rel {
+  display: flex; flex-direction: column; gap: 6px; padding: 22px 22px;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); color: var(--ink);
+  transition: transform .18s, box-shadow .2s, border-color .2s;
+}
+.nd-rel:hover { text-decoration: none; transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--accent); color: var(--ink); }
+.nd-rel.is-self { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: #fff; pointer-events: none; }
+.nd-rel.is-self .nd-rel-venue, .nd-rel.is-self .nd-rel-desc { color: rgba(255,255,255,.85); }
+.nd-rel-venue { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); }
+.nd-rel-name { font-size: 1.24rem; font-weight: 800; letter-spacing: -.02em; }
+.nd-rel-name em { font-style: italic; }
+.nd-rel-name em.tight { margin-right: .06em; }
+.nd-rel-desc { font-size: .86rem; color: var(--ink-soft); line-height: 1.45; }
+
+/* ============================================================
+   BIBTEX
+   ============================================================ */
+#BibTeX .title { font-family: var(--nd-font) !important; font-weight: 800 !important; color: var(--ink) !important; }
+#BibTeX pre {
+  background: #0e1019 !important; border: 1px solid #1f2336; border-radius: var(--radius);
+  padding: 26px 24px; overflow-x: auto;
+}
+#BibTeX pre code { font-family: var(--nd-mono) !important; font-size: .82rem; color: #c8cde0; line-height: 1.7; background: transparent; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: #0c0d17 !important; color: #aab0c4 !important; padding: 48px 0 !important; }
+.footer .content p, .footer p { color: #8389a0 !important; font-size: .9rem; }
+.footer a { color: #cdd2e4 !important; }
+.footer a:hover { color: #fff !important; }
+
+/* reveal-on-scroll */
+.nd-reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.nd-reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .nd-reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
