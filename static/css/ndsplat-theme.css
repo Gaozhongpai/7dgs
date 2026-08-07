@@ -162,7 +162,8 @@ body {
 /* ============================================================
    SECTIONS & HEADINGS
    ============================================================ */
-.section { padding: 78px 0; }
+.section { padding: 78px 1.25rem; }
+@media (max-width: 768px) { .section { padding: 56px 1.1rem; } }
 .hero.is-light, .section.hero.is-light { background: var(--bg-alt) !important; }
 .hero.is-small.is-light { background: var(--bg-alt) !important; }
 
