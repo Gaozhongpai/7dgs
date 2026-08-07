@@ -190,6 +190,11 @@ body {
 /* ============================================================
    RESULT TABS (Bootstrap nav-tabs) + DICS SLIDER
    ============================================================ */
+/* Bootstrap-style nav classes used by the results tabs; Bootstrap itself is
+   not loaded, so lay the list out ourselves. */
+ul.nav { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.nav-fill .nav-item { flex: 1 1 auto; text-align: center; }
+.nav-tabs .nav-link { display: block; }
 .nav-tabs { border-bottom: 1px solid var(--line); margin-bottom: 0; }
 #object-scale-recon .nav-link, .nav-tabs .nav-link {
   cursor: pointer; font-weight: 600; color: var(--ink-soft);
